@@ -70,7 +70,7 @@ PppHeader::Print (std::ostream &os) const
     default:
       NS_ASSERT_MSG (false, "PPP Protocol number not defined!");
     }
-  os << "Point-to-Point Protocol: " << proto; 
+  //os << "Point-to-Point Protocol: " << proto; 
 }
 
 uint32_t

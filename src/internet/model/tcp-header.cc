@@ -300,12 +300,12 @@ TcpHeader::Print (std::ostream &os)  const
 
   TcpOptionList::const_iterator op;
 
-  for (op = m_options.begin (); op != m_options.end (); ++op)
+  /*for (op = m_options.begin (); op != m_options.end (); ++op)
     {
       os << " " << (*op)->GetInstanceTypeId ().GetName () << "(";
       (*op)->Print (os);
       os << ")";
-    }
+    }*/
 }
 
 uint32_t
