@@ -208,6 +208,7 @@ Ipv4GlobalRouting::GetTupleValue(const Ipv4Header &header, Ptr<const Packet> ipP
 
   std::string data = oss.str();
   uint32_t hash = hasher.GetHash32(data);
+  hash /= (m_ipv4->GetObject<Node>()->GetId() + 1);
   oss.str("");
   return hash;  
 }
