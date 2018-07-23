@@ -19,6 +19,7 @@
 #include <stdint.h>
 #include <string>
 #include <fstream>
+#include <iomanip>
 
 #include "ns3/abort.h"
 #include "ns3/assert.h"
@@ -394,7 +395,10 @@ void
 AsciiTraceHelper::DefaultReceiveSinkWithContext (Ptr<OutputStreamWrapper> stream, std::string context, Ptr<const Packet> p)
 {
   NS_LOG_FUNCTION (stream << p);
-  *stream->GetStream () << "r " << Simulator::Now ().GetSeconds () << " " << context << " " << *p << std::endl;
+  //*stream->GetStream () << "r " << Simulator::Now ().GetSeconds () << " " << context << " " << *p << std::endl;
+  uint32_t n,d;
+  sscanf(context.c_str(),"/NodeList/%d/DeviceList/%d/",&n,&d);
+  *stream->GetStream () << std::setprecision(7) << Simulator::Now ().GetSeconds () << " /" << n << " " << *p << std::endl;
 }
 
 void 

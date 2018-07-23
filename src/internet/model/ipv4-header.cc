@@ -336,7 +336,7 @@ Ipv4Header::Print (std::ostream &os) const
 {
   NS_LOG_FUNCTION (this << &os);
   // ipv4, right ?
-  std::string flags;
+  /*std::string flags;
   if (m_flags == 0)
     {
       flags = "none";
@@ -369,7 +369,8 @@ Ipv4Header::Print (std::ostream &os) const
      << "length: " << (m_payloadSize + 5 * 4)
      << " " 
      << m_source << " > " << m_destination
-  ;
+  ; */
+  os << m_source << ">" << m_destination << " " << (m_payloadSize + 5 * 4);
 }
 uint32_t 
 Ipv4Header::GetSerializedSize (void) const

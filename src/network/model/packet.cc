@@ -419,25 +419,25 @@ Packet::Print (std::ostream &os) const
         {
           switch (item.type) {
             case PacketMetadata::Item::PAYLOAD:
-              os << "Payload";
+              //os << "Payload";
               break;
             case PacketMetadata::Item::HEADER:
             case PacketMetadata::Item::TRAILER:
               os << item.tid.GetName ();
               break;
             }
-          os << " Fragment [" << item.currentTrimedFromStart<<":"
-             << (item.currentTrimedFromStart + item.currentSize) << "]";
+          //os << " Fragment [" << item.currentTrimedFromStart<<":"
+             //<< (item.currentTrimedFromStart + item.currentSize) << "]";
         }
       else
         {
           switch (item.type) {
             case PacketMetadata::Item::PAYLOAD:
-              os << "Payload (size=" << item.currentSize << ")";
+              //os << "Payload (size=" << item.currentSize << ")";
               break;
             case PacketMetadata::Item::HEADER:
             case PacketMetadata::Item::TRAILER:
-              os << item.tid.GetName () << " (";
+              //os << item.tid.GetName () << " (";
               {
                 NS_ASSERT (item.tid.HasConstructor ());
                 Callback<ObjectBase *> constructor = item.tid.GetConstructor ();
@@ -450,7 +450,7 @@ Packet::Print (std::ostream &os) const
                 chunk->Print (os);
                 delete chunk;
               }
-              os << ")";
+              //os << ")";
               break;
             }
         }

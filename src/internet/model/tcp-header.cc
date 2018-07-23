@@ -286,14 +286,17 @@ TcpHeader::GetInstanceTypeId (void) const
 void
 TcpHeader::Print (std::ostream &os)  const
 {
-  os << m_sourcePort << " > " << m_destinationPort;
+  //os << m_sourcePort << " > " << m_destinationPort;
+  os << m_sourcePort << ">" << m_destinationPort;
 
   if (m_flags != 0)
     {
-      os << " [" << FlagsToString (m_flags) << "]";
+      //os << " [" << FlagsToString (m_flags) << "]";
+      os << " " << FlagsToString (m_flags);
     }
 
-  os << " Seq=" << m_sequenceNumber << " Ack=" << m_ackNumber << " Win=" << m_windowSize;
+  //os << " Seq=" << m_sequenceNumber << " Ack=" << m_ackNumber << " Win=" << m_windowSize;
+    os << " S=" << m_sequenceNumber << " A=" << m_ackNumber;
 
   TcpOptionList::const_iterator op;
 
